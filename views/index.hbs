@@ -1,0 +1,65 @@
+<h1>My TODO list</h1>
+<p>Welcome {{user.name}}</p>
+
+<form method="post">
+    <p>Add a todo :</p>
+    <input type="text" name="todo">
+    <button type="submit">Add</button>
+</form>
+<hr>
+<table>
+    <thead>
+        <tr>
+            <td>
+                <h2>
+                    To do
+                </h2>
+            </td>
+            <td>
+                <h2>
+                    Done
+                </h2>
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 300px;">
+                <ul style="padding-left: 20px;">
+                    {{#each todos}}
+                        {{#unless checked}}
+                            <li style="display: flex; margin: 5px 0;">
+                                <a style="text-decoration: none;" href="/toggle/{{id}}">
+                                    <h4 style="margin: 0; margin-right: 10px">
+                                        - {{description}}
+                                    </h4>
+                                </a>
+                                <a style="text-decoration: none; color: red;" href="/delete/{{id}}">
+                                    X
+                                </a>
+                            </li>
+                        {{/unless}}
+                    {{/each}}
+                </ul>
+            </td>
+            <td style="width: 300px;">
+                <ul style="padding-left: 20px;">
+                    {{#each todos}}
+                        {{#if checked}}
+                            <li style="display: flex; margin: 5px 0;">
+                                <a style="text-decoration: none;" href="/toggle/{{id}}">
+                                    <h4 style="margin: 0; margin-right: 10px">
+                                        - {{description}}
+                                    </h4>
+                                </a>
+                                <a style="text-decoration: none; color: red;" href="/delete/{{id}}">
+                                    X
+                                </a>
+                            </li>
+                        {{/if}}
+                    {{/each}}
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>

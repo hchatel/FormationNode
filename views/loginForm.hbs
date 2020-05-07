@@ -1,0 +1,15 @@
+<h1>Login</h1>
+<form method="post">
+    <div>
+        <p>Username :</p>
+        <input type="text" name="username" />
+    </div>
+    <div>
+        <p>Password :</p>
+        <input type="password" name="password" />
+    </div>
+    {{#each errors}}
+        <p style="color: red">{{ . }}</p>
+    {{/each}}
+    <button>Send</button>
+</form>

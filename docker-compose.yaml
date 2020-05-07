@@ -1,0 +1,25 @@
+version: '2.4'
+
+services:
+    postgres:
+        image: postgres
+        environment:
+            PGUSER: thetribe
+            PGPASSWORD: 424242
+            POSTGRES_PASSWORD: 424242
+            POSTGRES_USER: thetribe
+
+    node:
+        image: node
+        command: yarn dev
+        volumes:
+            - .:/usr/src/
+        ports:
+            - 3000:3000
+        working_dir: /usr/src/
+        environment:
+            DATABASE_HOST: postgres
+            DATABASE_NAME: thetribe
+            DATABASE_PASSWORD: 424242
+            DATABASE_PORT: 5432
+            DATABASE_USER: thetribe
